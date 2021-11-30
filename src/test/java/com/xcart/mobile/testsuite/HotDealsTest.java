@@ -45,18 +45,25 @@ public class HotDealsTest extends TestBase {
 
     @Test
     public void verifyBestSellersProductsArrangeByZToA() throws InterruptedException {
-            homePage.clickOnBestSellersSubPage();
-            bestSellersPage.verifyUserIsOnBestSellersPage();
-            bestSellersPage.clickOnSortByZtoAAndVerifyBestSellers();
+        homePage.clickOnBestSellersSubPage();
+        bestSellersPage.verifyUserIsOnBestSellersPage();
+        bestSellersPage.clickOnSortByZtoAAndVerifyBestSellers();
 
     }
 
     @Test
-    public void verifyBestSellersProductsPriceArrangeHighToLow() throws InterruptedException{
-                homePage.clickOnBestSellersSubPage();
-                bestSellersPage.verifyUserIsOnBestSellersPage();
-                bestSellersPage.clickOnSortByHighToLowAndVerifyBestSellers();
+    public void verifyBestSellersProductsPriceArrangeHighToLow() throws InterruptedException {
+        homePage.clickOnBestSellersSubPage();
+        bestSellersPage.verifyUserIsOnBestSellersPage();
+        bestSellersPage.clickOnSortByHighToLowAndVerifyBestSellers();
 
+    }
+
+    @Test
+    public void verifyBestSellersProductsArrangeByRates () throws InterruptedException{
+        homePage.clickOnBestSellersSubPage();
+        bestSellersPage.verifyUserIsOnBestSellersPage();
+        bestSellersPage.clickOnSortByRatesAndVerify();
     }
 
 }

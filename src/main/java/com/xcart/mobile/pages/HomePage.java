@@ -62,4 +62,6 @@ public class HomePage extends Utility {
         useMouseHoverAction(hotDealsText);
         useMouseHoverAndClickAction(bestSellersText);
     }
+
+
 }

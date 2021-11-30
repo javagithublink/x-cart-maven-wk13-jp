@@ -17,7 +17,7 @@ public class SalePage extends Utility {
     By sortByAToZText = By.xpath("//a[normalize-space()='Name A - Z']");
     By productPriceList = By.xpath("//ul[@class='product-price']");
     By sortByLowToHighText = By.xpath("//a[normalize-space()='Price Low - High']");
-    By productRating = By.xpath("//div[@class='rating-tooltip']//div[@class='text']//div");
+    By productRating = By.xpath("//div[@class='rating']//div//div//div[@style]");
     By sortByRating = By.xpath("//a[normalize-space()='Rates']");
     By productImage = By.xpath("//div[contains(@class,'product productid-16')]//a[contains(@class,'product-thumbnail next-previous-assigned')]");
     By addToCartFirst = By.xpath("//button[contains(@class,'regular-button add-to-cart product-add2cart productid-16')]//span[contains(text(),'Add to cart')]");
@@ -77,29 +77,29 @@ public class SalePage extends Utility {
 
     public void clickOnSortByRatesAndVerify() throws InterruptedException{
 
-        //List<WebElement> originalList = driver.findElements(productRating);
+        List<WebElement> originalList = driver.findElements(productRating);
 
-        //List<String> originalProductRating = new ArrayList<>();
-        //for (WebElement rating :originalList) {
-        //    originalProductRating.add(rating.getText());
-        //}
+        List<Integer> originalProductRating = new ArrayList<>();
+        for (WebElement rating :originalList) {
+           originalProductRating.add(rating.getAttribute("style").indexOf(3,6));
+        }
 
         //System.out.println(driver.findElements(productRating).size());
-        System.out.println(useGetTextFromElement(productRating));
-/*
+        //System.out.println(useGetTextFromElement(productRating));
+
         Collections.sort(originalProductRating,Collections.reverseOrder());
         useMouseHoverAction(sortByDropDown);
         useMouseHoverAndClickAction(sortByRating);
         Thread.sleep(3000);
 
         List<WebElement> afterSortingList = driver.findElements(productRating);
-        List<Double> afterSortingProductRating = new ArrayList<>(15);
+        List<Integer> afterSortingProductRating = new ArrayList<>(15);
         for (WebElement rating1 :afterSortingList){
-            afterSortingProductRating.add(Double.valueOf(rating1.getText().substring(8,11)));
+            afterSortingProductRating.add(rating1.getAttribute("style").indexOf(3,6));
         }
-        System.out.println(afterSortingProductRating);
-        //Assert.assertEquals(originalProductRating,afterSortingProductRating,"products are not sorted");
-*/
+        //System.out.println(afterSortingProductRating);
+        Assert.assertEquals(originalProductRating,afterSortingProductRating,"products are not sorted");
+
     }
 
 

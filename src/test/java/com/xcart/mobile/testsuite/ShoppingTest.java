@@ -49,4 +49,24 @@ public class ShoppingTest extends TestBase {
 
     }
 
+    @Test
+    public void verifyThatUserShouldClearShoppingCartSuccessfully() throws InterruptedException{
+
+        homePage.clickOnBestSellersSubPage();
+
+        bestSellersPage.verifyUserIsOnBestSellersPage();
+        bestSellersPage.clickOnSortByAtoZAndVerifyBestSellers();
+        bestSellersPage.clickOnAddToCartButton();
+        bestSellersPage.verifyProductHasBeenAddedToCartMessage();
+        bestSellersPage.goToCartFromBestSellersPage();
+
+        shoppingCartPage.verifyShoppingCartHeaderMessage();
+        shoppingCartPage.clickOnEmptyYourCart();
+        shoppingCartPage.verifyAlertMessageAndAccept();
+        shoppingCartPage.verifyItemDeletedFromYourCartMessage();
+        shoppingCartPage.verifyYourCarIsEmptyMessage();
+
+
+    }
+
 }

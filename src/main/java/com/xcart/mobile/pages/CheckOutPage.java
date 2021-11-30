@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class CheckOutPage extends Utility {
 
-    By checkOutHeader = By.xpath("//button[contains(@class,'regular-button anonymous-continue-button submit')]");
+    By checkOutHeader = By.xpath("//h1[normalize-space()='Secure Checkout']");
     By firstName = By.id("shippingaddress-firstname");
     By lastName = By.id("shippingaddress-lastname");
     By street = By.id("shippingaddress-street");
@@ -16,7 +16,7 @@ public class CheckOutPage extends Utility {
     By cashOnDelivery = By.id("pmethod6");
     By totalAmount = By.xpath("//div[@class='total clearfix']//span[@class='surcharge-cell']");
     By placeOrderButton = By.xpath("//button[@class='btn regular-button regular-main-button place-order submit']");
-    By orderSuccessMessage = By.xpath("//h1[text()='Thank you for your order']");
+    By orderSuccessMessage = By.xpath("//h1[normalize-space()='Thank you for your order']");
 
 
     public void verifyUserIsOnCheckOutPage() throws InterruptedException {
@@ -51,7 +51,8 @@ public class CheckOutPage extends Utility {
         useVerifyResult(expectedAmount,totalAmount,"wrong amount");
     }
 
-    public void clickOnPlaceOrderButton(){
+    public void clickOnPlaceOrderButton() throws InterruptedException {
+        Thread.sleep(1000);
         useClickOnElement(placeOrderButton);
     }
 
